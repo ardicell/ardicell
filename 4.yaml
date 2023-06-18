@@ -1,0 +1,61 @@
+---
+proxy-groups:
+proxies:
+- name: TIMIN
+  type: trojan
+  server: liveon.serverardi.my.id
+  port: 443
+  password: f416642f-4168-4fd5-be32-75e15c61ecb3
+  udp: true
+  sni: biznet.serverardi.my.id
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: "/trojanws"
+    headers:
+      Host: biznet.serverardi.my.id
+redir-port: 7892
+tproxy-port: 7895
+port: 7890
+socks-port: 7891
+mixed-port: 7893
+mode: global
+log-level: silent
+allow-lan: true
+external-controller: 0.0.0.0:9090
+secret: reyre
+bind-address: "*"
+external-ui: "/usr/share/openclash/ui"
+ipv6: false
+geodata-mode: false
+geodata-loader: memconservative
+tcp-concurrent: true
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: redir-host
+  listen: 0.0.0.0:7874
+  nameserver:
+  - dhcp://"wwan0"
+  - 192.168.8.1
+  default-nameserver:
+  - 192.168.8.1
+sniffer:
+  enable: true
+  sniffing:
+  - tls
+  - http
+  ForceDnsMapping: true
+  ParsePureIp: true
+profile:
+  store-selected: true
+  store-fake-ip: true
+authentication:
+- Clash:fbYNEDYe
+rules:
+- DST-PORT,7895,REJECT
+- DST-PORT,7892,REJECT
+- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+- DST-PORT,7892,REJECT
+- DST-PORT,7895,REJECT
+unified-delay: true
