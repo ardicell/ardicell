@@ -1,11 +1,11 @@
 ---
 proxy-groups:
 proxies:
-- name: TIMIN
+- name: Biz
   type: trojan
   server: liveon.serverardi.my.id
   port: 443
-  password: f416642f-4168-4fd5-be32-75e15c61ecb3
+  password: 3cc7b688-ae61-4d21-a397-602268b56408
   udp: true
   sni: biznet.serverardi.my.id
   skip-cert-verify: true
@@ -14,6 +14,58 @@ proxies:
     path: "/trojanws"
     headers:
       Host: biznet.serverardi.my.id
+- name: Sdc
+  type: trojan
+  server: liveon.serverardi.my.id
+  port: 443
+  password: afbcf79d-e763-41ea-8d09-3f2b73812bc6
+  udp: true
+  sni: sdc.serverardi.my.id
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: "/trojanws"
+    headers:
+      Host: sdc.serverardi.my.id
+- name: DO IGH
+  type: trojan
+  server: liveon.serverardi.my.id
+  port: 443
+  password: cad46353-92df-4c1b-a03a-9fe92d021ae1
+  udp: true
+  sni: sgdo1.serverardi.my.id
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: "/trojan-ws"
+    headers:
+      Host: sgdo1.serverardi.my.id
+- name: R Web
+  type: trojan
+  server: liveon.serverardi.my.id
+  port: 443
+  password: 21b8e39d-1d84-4244-90b3-4fee770682f6
+  udp: true
+  sni: rumahweb.serverardi.my.id
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: "/trojan-ws"
+    headers:
+      Host: rumahweb.serverardi.my.id
+- name: IKD
+  type: trojan
+  server: 172.67.139.111
+  port: 443
+  password: calo
+  udp: true
+  sni: ikd2.hijinetwork.cloud
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: "/tunneltrojan"
+    headers:
+      Host: ikd2.hijinetwork.cloud
 redir-port: 7892
 tproxy-port: 7895
 port: 7890
